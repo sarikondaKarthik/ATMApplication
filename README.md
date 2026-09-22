@@ -1,54 +1,102 @@
-# ATM Machine
+# ATM Application
 
-![GitHub last commit](https://img.shields.io/github/last-commit/rajyash1904/ATM-Machine.svg)![GitHub stars](https://img.shields.io/github/stars/rajyash1904/ATM-Machine.svg)
-![GitHub forks](https://img.shields.io/github/forks/rajyash1904/ATM-Machine.svg)![GitHub issues](https://img.shields.io/github/issues/rajyash1904/ATM-Machine.svg)
+A console-based ATM (Automated Teller Machine) simulator written in Java. It models a simple banking system where users can create an account, log in with a customer number and PIN, and manage checking and savings accounts through a text-based menu.
 
-## A functional ATM project written in Java
+## Features
 
-This project generates an automated teller machine (ATM) that stores the user's bank account, acount number, and password. With this ATM, users will be able to:
-* Make deposits
-* Withdraw money
-* View their account balance 
+- **Account creation** - Register a new customer with a unique customer number and PIN.
+- **Login** - Authenticate with a customer number and PIN before accessing an account.
+- **Dual accounts** - Every customer has both a **Checkings** and a **Savings** account.
+- **View balance** - Check the current balance of either account.
+- **Deposit funds** - Add money to either account.
+- **Withdraw funds** - Take money out of either account without allowing a negative balance.
+- **Transfer funds** - Move money between your own Checkings and Savings accounts.
+- **Input validation** - Handles invalid input and rejects transactions that would create a negative balance.
 
----
-## Installation
+## Project Structure
 
-### Dependencies
+```text
+ATMApplication/
+├── ATM/
+│   ├── ATM.java          # Entry point - starts the application
+│   ├── Account.java      # Account model and transaction operations
+│   └── OptionMenu.java   # Menu navigation, login, and account creation
+├── Jenkinsfile           # CI pipeline for Semgrep security scanning
+├── LICENSE               # MIT License
+└── README.md
+```
 
-This project requires Java 8 or a later version to run
+## Prerequisites
 
-### User Installation
+- [Java Development Kit (JDK) 8](https://www.oracle.com/java/technologies/downloads/) or later
+- A terminal, command prompt, or Java IDE such as Eclipse, IntelliJ IDEA, NetBeans, or VS Code
 
-To run the project:
-1. Clone the ATM-Machine repo to your local machine (forking first is recommended for contributors
-2. Make sure the ATM.java, Account.java, and OptionMenu.java files are stored in a single folder
-3. Use Java IDE (e.g. Eclipse ,InteliJ or NetBeans) to view these files
-4. You can also use commmand prompt (Windows) or terminal (Mac/Linux) and cd to the project directory to view them
-5. In command prompt or terminal run command : javac ATM.java
-6. After completion your folder will contain 3 .class files
-7. In command prompt/terminal run command: java ATM
+## Getting Started
 
----
-## Visual
-After running the command in #7, you should see this interface:
+### 1. Clone the repository
 
-![ATM interface](https://user-images.githubusercontent.com/77065772/218245894-caabfd9b-3fa4-4833-81ba-07a2eadaf648.PNG)
+```bash
+git clone https://github.com/sarikondaKarthik/ATMApplication.git
+cd ATMApplication/ATM
+```
 
----
-# For Developers
+### 2. Compile the source files
 
-## Contribution Guidelines
+```bash
+javac ATM.java
+```
 
-### Working on Issues
+### 3. Run the application
 
-If you see an issue that has not been raised, create an issue first, and discuss the changes you want to make with the project's lead developers
+```bash
+java ATM
+```
 
-### Writing Your First Pull Request
+You should see:
 
-First you'll want to fork ATM-Machine on Github
+```text
+Welcome to the ATM Project!
 
-Then create a branch for the issue you want to work on
+ Type 1 - Login
+ Type 2 - Create Account
 
-When finished, push from your branch, then use the "Compare and Pull request" button on Github to create a pull request
+Choice:
+```
 
-Make sure to reference the issue your pull request addresses
+## Usage
+
+### Demo accounts
+
+Two demo accounts are loaded when the application starts, so you can log in immediately without creating a new account:
+
+| Customer Number | PIN    | Checkings Balance | Savings Balance |
+|-----------------|--------|-------------------|-----------------|
+| `952141`        | `191904` | $1,000.00       | $5,000.00       |
+| `123`           | `123`    | $20,000.00      | $50,000.00      |
+
+### Typical flow
+
+1. From the main menu, choose **1 - Login** and enter a customer number and PIN, or choose **2 - Create Account** to register a new customer.
+2. Select **Checkings** or **Savings**.
+3. Choose one of the available actions:
+	- View Balance
+	- Withdraw Funds
+	- Deposit Funds
+	- Transfer Funds to your other account
+	- Exit
+4. Follow the prompts to enter transaction amounts. Invalid input is rejected, and withdrawals or transfers cannot make an account balance negative.
+
+## Continuous Integration
+
+This repository includes a `Jenkinsfile` that runs a [Semgrep](https://semgrep.dev/) static analysis scan using the `p/ci` ruleset on every pipeline run. The scan helps identify common security issues early.
+
+## Contributing
+
+Contributions are welcome:
+
+1. Fork the repository.
+2. Create a feature branch: `git checkout -b feature/my-feature`
+3. Commit your changes with a clear message.
+4. Push your branch and open a pull request describing the change.
+
+Please open an issue first to discuss significant changes before submitting a pull request.
