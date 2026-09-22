@@ -1,8 +1,5 @@
 # ATM Machine
 
-![GitHub last commit](https://img.shields.io/github/last-commit/rajyash1904/ATM-Machine.svg)![GitHub stars](https://img.shields.io/github/stars/rajyash1904/ATM-Machine.svg)
-![GitHub forks](https://img.shields.io/github/forks/rajyash1904/ATM-Machine.svg)![GitHub issues](https://img.shields.io/github/issues/rajyash1904/ATM-Machine.svg)
-
 ## A functional ATM project written in Java
 
 This project generates an automated teller machine (ATM) that stores the user's bank account, acount number, and password. With this ATM, users will be able to:
