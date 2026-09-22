@@ -1,51 +1,77 @@
-# ATM Machine
+ATM Application
 
-## A functional ATM project written in Java
+A console-based ATM (Automated Teller Machine) simulator written in Java. It models a simple banking system where users can create an account, log in with a customer number and PIN, and manage a checking and a savings account — all through a text-based menu.
 
-This project generates an automated teller machine (ATM) that stores the user's bank account, acount number, and password. With this ATM, users will be able to:
-* Make deposits
-* Withdraw money
-* View their account balance 
+Features
+Account creation – Register a new customer with a unique customer number and PIN.
+Login – Authenticate with a customer number and PIN before accessing any account.
+Dual accounts – Every customer has both a Checkings and a Savings account.
+View balance – Check the current balance of either account.
+Deposit funds – Add money to either account.
+Withdraw funds – Take money out of either account (blocked if it would go negative).
+Transfer funds – Move money between your own Checkings and Savings accounts.
+Input validation – Handles invalid/non-numeric input and prevents balances from going negative.
+Project Structure
+ATMApplication/
+├── ATM/
+│   ├── ATM.java          # Entry point — starts the application
+│   ├── Account.java      # Account model: balances, deposits, withdrawals, transfers
+│   └── OptionMenu.java   # Menu navigation, login, account creation, and account access
+├── Jenkinsfile           # CI pipeline (runs a Semgrep security scan)
+├── LICENSE                # MIT License
+└── README.md
+Prerequisites
+Java Development Kit (JDK) 8 or later
+A terminal / command prompt, or a Java IDE (Eclipse, IntelliJ IDEA, NetBeans, VS Code, etc.)
+Getting Started
+Clone the repository
+bash
+   git clone https://github.com/sarikondaKarthik/ATMApplication.git
+   cd ATMApplication/ATM
+Compile the source files
+bash
+   javac ATM.java
+Run the application
+bash
+   java ATM
 
----
-## Installation
+You should see:
 
-### Dependencies
+Welcome to the ATM Project!
 
-This project requires Java 8 or a later version to run
+ Type 1 - Login
+ Type 2 - Create Account
 
-### User Installation
+Choice:
+Usage
+Demo accounts
 
-To run the project:
-1. Clone the ATM-Machine repo to your local machine (forking first is recommended for contributors
-2. Make sure the ATM.java, Account.java, and OptionMenu.java files are stored in a single folder
-3. Use Java IDE (e.g. Eclipse ,InteliJ or NetBeans) to view these files
-4. You can also use commmand prompt (Windows) or terminal (Mac/Linux) and cd to the project directory to view them
-5. In command prompt or terminal run command : javac ATM.java
-6. After completion your folder will contain 3 .class files
-7. In command prompt/terminal run command: java ATM
+Two demo accounts are pre-loaded when the application starts, so you can log in immediately without creating a new account:
 
----
-## Visual
-After running the command in #7, you should see this interface:
+Customer Number	PIN	Checkings Balance	Savings Balance
+952141	191904	$1,000.00	$5,000.00
+123	123	$20,000.00	$50,000.00
+Typical flow
+From the main menu, choose 1 - Login and enter a customer number and PIN (or 2 - Create Account to register a new one).
+Select which account to access: Checkings or Savings.
+From there, choose to:
+View Balance
+Withdraw Funds
+Deposit Funds
+Transfer Funds (to your other account)
+Exit
+Follow the on-screen prompts to enter amounts. The application re-prompts on invalid input and prevents any balance from going negative.
+Continuous Integration
 
-![ATM interface](https://user-images.githubusercontent.com/77065772/218245894-caabfd9b-3fa4-4833-81ba-07a2eadaf648.PNG)
+This repository includes a Jenkinsfile that runs a Semgrep static analysis scan (p/ci ruleset) on every pipeline run to catch common security issues early.
 
----
-# For Developers
+Contributing
 
-## Contribution Guidelines
+Contributions are welcome!
 
-### Working on Issues
+Fork the repository.
+Create a feature branch (git checkout -b feature/my-feature).
+Commit your changes with clear messages.
+Push to your branch and open a pull request, describing the change and referencing any related issue.
 
-If you see an issue that has not been raised, create an issue first, and discuss the changes you want to make with the project's lead developers
-
-### Writing Your First Pull Request
-
-First you'll want to fork ATM-Machine on Github
-
-Then create a branch for the issue you want to work on
-
-When finished, push from your branch, then use the "Compare and Pull request" button on Github to create a pull request
-
-Make sure to reference the issue your pull request addresses
+Please open an issue first to discuss significant changes before submitting a pull request.
